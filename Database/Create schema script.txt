@@ -1,0 +1,13 @@
+/*The database used is mysql and running on port 3306*/
+
+CREATE DATABASE `glabbr` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+
+CREATE TABLE `chat_log` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sender` varchar(45) DEFAULT NULL,
+  `body` varchar(1000) DEFAULT NULL,
+  `timestamp` datetime DEFAULT NULL,
+  `profile` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=41 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
