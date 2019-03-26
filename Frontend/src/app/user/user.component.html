@@ -1,0 +1,35 @@
+<div class="chat-window">
+  <div class="chat-head">
+    <div class="container">
+     <div class="row chat-head-header">Intercom</div>
+     <div class="row chat-head-sub-header">We help your business grow by connecting you to your customers.</div>
+      <div class="row chat-head-content">
+          <div (click)="selectProfile('A')" class="col-md-4 nopadding person">
+            <img src="../../assets/user.png" width="90%"/>
+            Person A
+          </div>
+          <div (click)="selectProfile('B')" class="col-md-4 nopadding person">
+            <img src="../../assets/user.png" width="90%"/>
+            Person B
+          </div>
+          <div (click)="selectProfile('C')" class="col-md-4 nopadding person">
+            <img src="../../assets/user.png" width="90%"/>
+            Person C
+          </div>
+      </div>
+      <div class="row chat-head-footer">The team typically replies in a few hours.</div>
+    </div>
+  </div>
+  <div class="chat-list">
+    <ul>
+      <li *ngFor="let message of chatlog" [ngClass]="message.sender == 'user' ? 'right' : 'left'">
+        <span [ngClass]="message.sender == 'user' ? 'user-chat' : 'bot-chat'">{{message.body}}</span></li>
+    </ul>
+  </div>
+  <div class="chat-input">
+    <form [formGroup]="inputForm">
+      <input type="text" class="form-control no-border" autofocus  formControlName="userInput" placeholder="Write a reply.."
+        #userInput (keydown.enter)="reply(userInput.value)" />
+    </form>
+  </div>
+</div>

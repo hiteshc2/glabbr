@@ -1,0 +1,45 @@
+<div class="chat-window">
+    <div class="chat-head">
+      <div class="container">
+       <div class="row chat-head-header">My Team</div>
+       <div class="row chat-head-sub-header">Automated replies are triggered using a timer to respond to user at intervals </div>
+        <div class="row chat-head-content">
+            <div (click)="getChatLogByProfile('A')" class="col-md-3 nopadding person">
+                <img src="../../assets/user.png" width="50%"/>
+                Person A
+              </div>
+              <div (click)="getChatLogByProfile('B')" class="col-md-3 nopadding person">
+                <img src="../../assets/user.png" width="50%"/>
+                Person B
+              </div>
+              <div (click)="getChatLogByProfile('C')" class="col-md-3 nopadding person">
+                <img src="../../assets/user.png" width="50%"/>
+                Person C
+              </div>
+              <div (click)="getChatLog()" class="col-md-3 nopadding person">
+                <img src="../../assets/user.png" width="50%"/>
+                All
+              </div>
+        </div>
+        <div class="row chat-head-footer">
+         Click on the profile icon above to find the conversation of that user
+        </div>
+      </div>
+    </div>
+    <div class="chat-list">
+      <ul>
+        <li *ngFor="let message of chatlog" [ngClass]="message.sender == 'bot' ? 'right' : 'left'">
+          <span [ngClass]="message.sender == 'bot' ? 'user-chat' : 'bot-chat'">{{message.body}}</span><br/>
+          <span class="timestamp">{{message.timestamp | date:'hh:mm a'}}</span>  
+          <span class="timestamp" *ngIf="message.profile"> | Profile {{message.profile}}</span>
+        </li>
+      </ul>
+    </div>
+    <div class="chat-input">
+      <!-- <form [formGroup]="inputForm" (ngSubmit)="respond(botInput.value)">
+        <input type="text" class="form-control no-border" autofocus  formControlName="botInput" placeholder="Write a reply.."
+          #botInput/>
+          <button type="submit">Send</button>
+      </form> -->
+    </div>
+  </div>
